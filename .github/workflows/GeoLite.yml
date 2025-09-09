@@ -52,7 +52,7 @@ jobs:
     - name: Upload to Releases
       uses: softprops/action-gh-release@v2
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.PRIVATE_PAT }}
       with:
         tag_name: ${{ env.TAG_NAME }}
         body: ${{ env.TAG_NAME }}
@@ -64,7 +64,7 @@ jobs:
         keep_latest: 2
         delete_tags: true
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.PRIVATE_PAT }}
 
     - name: Delete workflow runs
       uses: Mattraks/delete-workflow-runs@main
