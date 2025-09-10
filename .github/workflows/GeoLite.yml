@@ -48,7 +48,19 @@ jobs:
         mkdir -p upload
         cp -v GeoLite*/*.mmdb upload
         echo "TAG_NAME=$(date +"%Y.%m.%d")" >> $GITHUB_ENV
-
+        
+    - name: Push to "download" branch
+      run: |
+        cd upload
+        git init
+        git config user.name "${{ github.actor }}"
+        git config user.email "${{ github.actor }}@users.noreply.github.com"
+        git checkout -b download
+        git add .
+        git commit -m "${{ env.TAG_NAME }}"
+        git remote add origin "https://${{ github.actor }}:${{ secrets.PRIVATE_PAT }}@github.com/${{ github.repository }}"
+        git push -f origin download
+        
     - name: Upload to Releases
       uses: softprops/action-gh-release@v2
       env:
