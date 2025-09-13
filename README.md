@@ -1,6 +1,6 @@
 # GeoLite.mmdb
 
-[MaxMind's GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/) Country, City, and ASN databases
+[MaxMind's GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/) City databases
 
 ## License
 
